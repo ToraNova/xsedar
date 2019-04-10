@@ -1,0 +1,2 @@
+xsedar is a project made to test out the prospects of garbling circuit together with
+oblivious transfers. the project uses OTextensions, justGarble as well as ENCRYPTO_utils.
