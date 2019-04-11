@@ -38,4 +38,34 @@ const std::string* m_nAddr;
 BOOL Init(crypto* crypt);
 BOOL Cleanup();
 
+void InitOTSender(const std::string& address, const int port, crypto* crypt);
+void InitOTReceiver(const std::string &address, const int port, crypto* crypt);
+
+BOOL ObliviouslyReceive(CBitVector* choices, CBitVector* ret, int numOTs, int bitlength, uint32_t nsndvals, snd_ot_flavor stype, rec_ot_flavor rtype, crypto* crypt);
+BOOL ObliviouslySend(CBitVector** X, int numOTs, int bitlength, uint32_t nsndvals, snd_ot_flavor stype, rec_ot_flavor rtype, crypto* crypt);
+
+// Network Communication
+std::unique_ptr<CSocket> m_Socket;
+uint32_t m_nPID; // thread id
+field_type m_eFType;
+uint32_t m_nBitLength;
+MaskingFunction* m_fMaskFct;
+
+// Naor-Pinkas OT
+//BaseOT* bot;
+OTExtSnd *sender;
+OTExtRec *receiver;
+
+SndThread* sndthread;
+RcvThread* rcvthread;
+
+uint32_t m_nNumOTThreads;
+uint32_t m_nBaseOTs;
+uint32_t m_nChecks;
+
+bool m_bUseMinEntCorAssumption;
+ot_ext_prot m_eProt;
+
+double rndgentime;
+
 #endif

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/xsedar.dir/xsedar.cpp.o"
-  "xsedar.pdb"
-  "xsedar"
+  "libxsedar.pdb"
+  "libxsedar.a"
 )
 
 # Per-language clean rules from dependency scanning.

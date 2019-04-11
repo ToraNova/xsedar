@@ -1,6 +1,8 @@
 
 cmake_minimum_required(VERSION 3.12)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse4.1 -maes")
+
 find_package(Threads REQUIRED)
 find_package(Boost 1.69.0 COMPONENTS system thread filesystem REQUIRED)
 find_package(ENCRYPTO_utils REQUIRED)

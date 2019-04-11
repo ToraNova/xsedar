@@ -56,16 +56,41 @@ CMAKE_BINARY_DIR = /home/cjason/Desktop/secure-dist-computing/xsedar/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +102,27 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +157,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/CMakeFiles/setup_test.dir/rule:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/setup_test.dir/rule
+.PHONY : src/CMakeFiles/setup_test.dir/rule
+
+# Convenience name for target.
+setup_test: src/CMakeFiles/setup_test.dir/rule
+
+.PHONY : setup_test
+
+# fast build rule for target.
+setup_test/fast:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/build
+.PHONY : setup_test/fast
+
+# Convenience name for target.
 src/CMakeFiles/xsedar.dir/rule:
 	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/xsedar.dir/rule
 .PHONY : src/CMakeFiles/xsedar.dir/rule
@@ -124,6 +185,33 @@ xsedar: src/CMakeFiles/xsedar.dir/rule
 xsedar/fast:
 	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
 .PHONY : xsedar/fast
+
+setup_test.o: setup_test.cpp.o
+
+.PHONY : setup_test.o
+
+# target to build an object file
+setup_test.cpp.o:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/setup_test.cpp.o
+.PHONY : setup_test.cpp.o
+
+setup_test.i: setup_test.cpp.i
+
+.PHONY : setup_test.i
+
+# target to preprocess a source file
+setup_test.cpp.i:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/setup_test.cpp.i
+.PHONY : setup_test.cpp.i
+
+setup_test.s: setup_test.cpp.s
+
+.PHONY : setup_test.s
+
+# target to generate assembly for a file
+setup_test.cpp.s:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/setup_test.cpp.s
+.PHONY : setup_test.cpp.s
 
 xsedar.o: xsedar.cpp.o
 
@@ -158,9 +246,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... install/strip"
+	@echo "... setup_test"
+	@echo "... install/local"
 	@echo "... xsedar"
+	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... setup_test.o"
+	@echo "... setup_test.i"
+	@echo "... setup_test.s"
 	@echo "... xsedar.o"
 	@echo "... xsedar.i"
 	@echo "... xsedar.s"

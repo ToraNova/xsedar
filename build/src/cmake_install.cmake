@@ -37,3 +37,31 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test"
+         RPATH "")
+  endif()
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/home/cjason/Desktop/secure-dist-computing/xsedar/bin" TYPE EXECUTABLE FILES "/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/setup_test")
+  if(EXISTS "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test"
+         OLD_RPATH "/usr/local/lib:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test")
+    endif()
+  endif()
+endif()
+
