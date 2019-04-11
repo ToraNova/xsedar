@@ -18,6 +18,7 @@ target_link_libraries(xsedar
 )
 
 add_executable(setup_test setup_test.cpp)
-target_link_libraries(setup_test xsedar justgarble)
+target_link_libraries(setup_test 
+	xsedar justgarble ENCRYPTO_utils::encrypto_utils)
 
 install(TARGETS setup_test DESTINATION ${PROJECT_SOURCE_DIR}/bin)

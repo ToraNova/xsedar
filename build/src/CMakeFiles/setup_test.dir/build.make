@@ -81,6 +81,7 @@ src/setup_test: src/CMakeFiles/setup_test.dir/setup_test.cpp.o
 src/setup_test: src/CMakeFiles/setup_test.dir/build.make
 src/setup_test: src/libxsedar.a
 src/setup_test: src/justGarble/libjustgarble.a
+src/setup_test: /usr/local/lib/libencrypto_utils.a
 src/setup_test: /usr/local/lib/libotextension.a
 src/setup_test: /usr/local/lib/libencrypto_utils.a
 src/setup_test: /usr/local/lib/libmiracl.a
