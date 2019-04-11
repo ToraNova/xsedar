@@ -4,6 +4,10 @@
 #include <iostream>
 #include <ENCRYPTO_utils/connection.h>
 
+#include "justGarble.h"
+
+#define circuit_filename "justine_aes.gc"
+
 int main(int argc, char *argv[]){
 
   if(argc<2){
@@ -46,7 +50,10 @@ int main(int argc, char *argv[]){
 	m_eProt = IKNP;
 
   crypto *crypt = new crypto(m_nSecParam, (uint8_t*) m_cConstSeed[m_nPID]);
-  
+
+  GarbledCircuit circuit;
+  readCircuitFromFile(&circuit, circuit_filename);
+
 	std::cout << "Trial run OK" << std::endl;
 	return 0;
 }

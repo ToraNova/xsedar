@@ -65,3 +65,9 @@ file(INSTALL DESTINATION "/home/cjason/Desktop/secure-dist-computing/xsedar/bin"
   endif()
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/cmake_install.cmake")
+
+endif()
+

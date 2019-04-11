@@ -3,7 +3,7 @@
 
 void build_JustineAES(GarbledCircuit *buildTarget) {
   GarblingContext garblingContext;
-  const char *circuitName = "justine_aes.gc";
+  char *circuitName = "justine_aes.gc";
 
   int roundLimit = 10;
   int n = 128 + 128 * (roundLimit + 1); //XOR the key 11 times
@@ -87,7 +87,7 @@ void setup_AESInput(int *setup_target, unsigned char *plaintext, unsigned char *
   AES_set_encrypt_key(userkey, 128, inkey);
 
   make_uint_array_from_blob(setup_target, plaintext, 16);
-  unsigned char* blob = inkey->rd_key;
+  unsigned char* blob = (unsigned char *)inkey->rd_key;
 
   //printf("(%u) Input key...", n / 8 / 16);
   make_uint_array_from_blob(setup_target + 128, blob, n/8 - 16);

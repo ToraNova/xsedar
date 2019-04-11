@@ -1,0 +1,2 @@
+/usr/bin/ar qc libjustgarble.a  CMakeFiles/justgarble.dir/aes.c.o CMakeFiles/justgarble.dir/aescircuits.c.o CMakeFiles/justgarble.dir/check.c.o CMakeFiles/justgarble.dir/circuits.c.o CMakeFiles/justgarble.dir/dkcipher.c.o CMakeFiles/justgarble.dir/eval.c.o CMakeFiles/justgarble.dir/garble.c.o CMakeFiles/justgarble.dir/gates.c.o CMakeFiles/justgarble.dir/jgutil.c.o CMakeFiles/justgarble.dir/scd.c.o CMakeFiles/justgarble.dir/tinyaes.c.o CMakeFiles/justgarble.dir/torabuild.c.o
+/usr/bin/ranlib libjustgarble.a

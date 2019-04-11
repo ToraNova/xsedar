@@ -70,17 +70,19 @@ CMAKE_BINARY_DIR = /home/cjason/Desktop/secure-dist-computing/xsedar/build
 # Convenience name for "all" pass in the directory.
 src/all: src/CMakeFiles/setup_test.dir/all
 src/all: src/CMakeFiles/xsedar.dir/all
+src/all: src/justGarble/all
 
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
 src/clean: src/CMakeFiles/setup_test.dir/clean
 src/clean: src/CMakeFiles/xsedar.dir/clean
+src/clean: src/justGarble/clean
 
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
-src/preinstall:
+src/preinstall: src/justGarble/preinstall
 
 .PHONY : src/preinstall
 
@@ -89,9 +91,10 @@ src/preinstall:
 
 # All Build rule for target.
 src/CMakeFiles/setup_test.dir/all: src/CMakeFiles/xsedar.dir/all
+src/CMakeFiles/setup_test.dir/all: src/justGarble/CMakeFiles/justgarble.dir/all
 	$(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/depend
 	$(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=1,2 "Built target setup_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=14,15 "Built target setup_test"
 .PHONY : src/CMakeFiles/setup_test.dir/all
 
 # Include target in all.
@@ -101,7 +104,7 @@ all: src/CMakeFiles/setup_test.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/setup_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/setup_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/setup_test.dir/rule
@@ -128,7 +131,7 @@ clean: src/CMakeFiles/setup_test.dir/clean
 src/CMakeFiles/xsedar.dir/all:
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/depend
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=3,4 "Built target xsedar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=16,17 "Built target xsedar"
 .PHONY : src/CMakeFiles/xsedar.dir/all
 
 # Include target in all.
@@ -155,6 +158,61 @@ src/CMakeFiles/xsedar.dir/clean:
 
 # clean rule for target.
 clean: src/CMakeFiles/xsedar.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/justGarble
+
+# Convenience name for "all" pass in the directory.
+src/justGarble/all: src/justGarble/CMakeFiles/justgarble.dir/all
+
+.PHONY : src/justGarble/all
+
+# Convenience name for "clean" pass in the directory.
+src/justGarble/clean: src/justGarble/CMakeFiles/justgarble.dir/clean
+
+.PHONY : src/justGarble/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/justGarble/preinstall:
+
+.PHONY : src/justGarble/preinstall
+
+#=============================================================================
+# Target rules for target src/justGarble/CMakeFiles/justgarble.dir
+
+# All Build rule for target.
+src/justGarble/CMakeFiles/justgarble.dir/all:
+	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/depend
+	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target justgarble"
+.PHONY : src/justGarble/CMakeFiles/justgarble.dir/all
+
+# Include target in all.
+all: src/justGarble/CMakeFiles/justgarble.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/justGarble/CMakeFiles/justgarble.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 src/justGarble/CMakeFiles/justgarble.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
+.PHONY : src/justGarble/CMakeFiles/justgarble.dir/rule
+
+# Convenience name for target.
+justgarble: src/justGarble/CMakeFiles/justgarble.dir/rule
+
+.PHONY : justgarble
+
+# clean rule for target.
+src/justGarble/CMakeFiles/justgarble.dir/clean:
+	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/clean
+.PHONY : src/justGarble/CMakeFiles/justgarble.dir/clean
+
+# clean rule for target.
+clean: src/justGarble/CMakeFiles/justgarble.dir/clean
 
 .PHONY : clean
 

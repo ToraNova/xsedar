@@ -12,3 +12,10 @@
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/edit_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/rebuild_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/list_install_components.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/install/strip.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/edit_cache.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/justgarble.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/rebuild_cache.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/list_install_components.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/install/local.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/install.dir

@@ -182,6 +182,19 @@ xsedar/fast:
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
 .PHONY : xsedar/fast
 
+#=============================================================================
+# Target rules for targets named justgarble
+
+# Build rule for target.
+justgarble: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 justgarble
+.PHONY : justgarble
+
+# fast build rule for target.
+justgarble/fast:
+	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/build
+.PHONY : justgarble/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -196,6 +209,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... setup_test"
 	@echo "... xsedar"
+	@echo "... justgarble"
 .PHONY : help
 
 

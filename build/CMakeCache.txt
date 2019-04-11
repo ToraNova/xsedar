@@ -187,7 +187,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Project
+CMAKE_PROJECT_NAME:STATIC=XSEDAR
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -263,6 +263,12 @@ GMP_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
 //Path to a library.
 GMP_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgmp.so
 
+//Path to a file.
+GNUTLS_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+GNUTLS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgnutls.so
+
 //The directory containing a CMake configuration file for MIRACL.
 MIRACL_DIR:PATH=/usr/local/lib/cmake/MIRACL
 
@@ -286,6 +292,18 @@ Project_BINARY_DIR:STATIC=/home/cjason/Desktop/secure-dist-computing/xsedar/buil
 
 //Value Computed by CMake
 Project_SOURCE_DIR:STATIC=/home/cjason/Desktop/secure-dist-computing/xsedar
+
+//Path to a library.
+SSL_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.a
+
+//Value Computed by CMake
+XSEDAR_BINARY_DIR:STATIC=/home/cjason/Desktop/secure-dist-computing/xsedar/build
+
+//Value Computed by CMake
+XSEDAR_SOURCE_DIR:STATIC=/home/cjason/Desktop/secure-dist-computing/xsedar
+
+//Path to a library.
+pkgcfg_lib_PC_GNUTLS_gnutls:FILEPATH=/usr/lib/x86_64-linux-gnu/libgnutls.so
 
 //Path to a library.
 pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
@@ -436,7 +454,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -481,6 +499,8 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_GMP:INTERNAL=[/usr/lib/x86_64-linux-gnu/libgmp.so][/usr/include/x86_64-linux-gnu][v()]
 //Details about finding GMPXX
 FIND_PACKAGE_MESSAGE_DETAILS_GMPXX:INTERNAL=[/usr/lib/x86_64-linux-gnu/libgmpxx.so][/usr/include][v()]
+//Details about finding GnuTLS
+FIND_PACKAGE_MESSAGE_DETAILS_GnuTLS:INTERNAL=[/usr/lib/x86_64-linux-gnu/libgnutls.so][/usr/include][v3.5.18()]
 //Details about finding OpenSSL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v1.1.0g()]
 //Details about finding Threads
@@ -493,14 +513,54 @@ GMPXX_LIBRARY-ADVANCED:INTERNAL=1
 GMP_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GMP_LIBRARY
 GMP_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GNUTLS_INCLUDE_DIR
+GNUTLS_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GNUTLS_LIBRARY
+GNUTLS_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
 OPENSSL_CRYPTO_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_INCLUDE_DIR
 OPENSSL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENSSL_SSL_LIBRARY
 OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
+PC_GNUTLS_CFLAGS:INTERNAL=-I/usr/include/p11-kit-1
+PC_GNUTLS_CFLAGS_I:INTERNAL=
+PC_GNUTLS_CFLAGS_OTHER:INTERNAL=
+PC_GNUTLS_FOUND:INTERNAL=1
+PC_GNUTLS_INCLUDEDIR:INTERNAL=/usr/include
+PC_GNUTLS_INCLUDE_DIRS:INTERNAL=/usr/include/p11-kit-1
+PC_GNUTLS_LDFLAGS:INTERNAL=-lgnutls
+PC_GNUTLS_LDFLAGS_OTHER:INTERNAL=
+PC_GNUTLS_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_GNUTLS_LIBRARIES:INTERNAL=gnutls
+PC_GNUTLS_LIBRARY_DIRS:INTERNAL=
+PC_GNUTLS_LIBS:INTERNAL=
+PC_GNUTLS_LIBS_L:INTERNAL=
+PC_GNUTLS_LIBS_OTHER:INTERNAL=
+PC_GNUTLS_LIBS_PATHS:INTERNAL=
+PC_GNUTLS_PREFIX:INTERNAL=/usr
+PC_GNUTLS_STATIC_CFLAGS:INTERNAL=-I/usr/include/p11-kit-1
+PC_GNUTLS_STATIC_CFLAGS_I:INTERNAL=
+PC_GNUTLS_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_GNUTLS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/p11-kit-1
+PC_GNUTLS_STATIC_LDFLAGS:INTERNAL=-lgnutls;-lgmp;/usr/lib/x86_64-linux-gnu/libunistring.so;-lidn2;-lhogweed;-lgmp;-lnettle;-ltasn1;-lp11-kit;-lz
+PC_GNUTLS_STATIC_LDFLAGS_OTHER:INTERNAL=/usr/lib/x86_64-linux-gnu/libunistring.so
+PC_GNUTLS_STATIC_LIBDIR:INTERNAL=
+PC_GNUTLS_STATIC_LIBRARIES:INTERNAL=gnutls;gmp;idn2;hogweed;gmp;nettle;tasn1;p11-kit;z
+PC_GNUTLS_STATIC_LIBRARY_DIRS:INTERNAL=
+PC_GNUTLS_STATIC_LIBS:INTERNAL=
+PC_GNUTLS_STATIC_LIBS_L:INTERNAL=
+PC_GNUTLS_STATIC_LIBS_OTHER:INTERNAL=
+PC_GNUTLS_STATIC_LIBS_PATHS:INTERNAL=
+PC_GNUTLS_VERSION:INTERNAL=3.5.18
+PC_GNUTLS_gnutls_INCLUDEDIR:INTERNAL=
+PC_GNUTLS_gnutls_LIBDIR:INTERNAL=
+PC_GNUTLS_gnutls_PREFIX:INTERNAL=
+PC_GNUTLS_gnutls_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+THREADS_HAVE_PTHREAD_ARG:INTERNAL=TRUE
 //Components requested for this build tree.
 _Boost_COMPONENTS_SEARCHED:INTERNAL=atomic;chrono;date_time;filesystem;system;thread
 //Last used Boost_INCLUDE_DIR value.
@@ -547,8 +607,12 @@ _OPENSSL_openssl_INCLUDEDIR:INTERNAL=
 _OPENSSL_openssl_LIBDIR:INTERNAL=
 _OPENSSL_openssl_PREFIX:INTERNAL=
 _OPENSSL_openssl_VERSION:INTERNAL=
+__pkg_config_arguments_PC_GNUTLS:INTERNAL=QUIET;gnutls
 __pkg_config_arguments__OPENSSL:INTERNAL=QUIET;openssl
+__pkg_config_checked_PC_GNUTLS:INTERNAL=1
 __pkg_config_checked__OPENSSL:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_GNUTLS_gnutls
+pkgcfg_lib_PC_GNUTLS_gnutls-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_crypto
 pkgcfg_lib__OPENSSL_crypto-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib__OPENSSL_ssl

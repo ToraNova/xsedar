@@ -80,6 +80,7 @@ setup_test_EXTERNAL_OBJECTS =
 src/setup_test: src/CMakeFiles/setup_test.dir/setup_test.cpp.o
 src/setup_test: src/CMakeFiles/setup_test.dir/build.make
 src/setup_test: src/libxsedar.a
+src/setup_test: src/justGarble/libjustgarble.a
 src/setup_test: /usr/local/lib/libotextension.a
 src/setup_test: /usr/local/lib/libencrypto_utils.a
 src/setup_test: /usr/local/lib/libmiracl.a
@@ -91,6 +92,8 @@ src/setup_test: /usr/local/lib/libboost_atomic.so
 src/setup_test: /usr/lib/x86_64-linux-gnu/libgmp.so
 src/setup_test: /usr/lib/x86_64-linux-gnu/libgmpxx.so
 src/setup_test: /usr/lib/x86_64-linux-gnu/libcrypto.so
+src/setup_test: /usr/lib/x86_64-linux-gnu/libssl.a
+src/setup_test: /usr/lib/x86_64-linux-gnu/libgnutls.so
 src/setup_test: src/CMakeFiles/setup_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable setup_test"
 	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/setup_test.dir/link.txt --verbose=$(VERBOSE)
