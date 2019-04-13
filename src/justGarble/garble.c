@@ -955,6 +955,7 @@ int blockEqual(block a, block b) {
 
 int mapOutputs(OutputMap outputMap, OutputMap outputMap2, int *vals, int m) {
 	int i,j;
+	int f = 0; //no fail
 	for (i = 0; i < m; i++) {
     /*int matched = 0;
     uint64_t* bl = (uint64_t*) &(outputMap[i]);
@@ -972,9 +973,10 @@ int mapOutputs(OutputMap outputMap, OutputMap outputMap2, int *vals, int m) {
 		}else if (blockEqual(outputMap2[i], outputMap[2 * i + 1])) {
 			vals[i] = 1;
 		}else{
-		  printf("MAP FAILED %d\n", i);
+		  f = 1;
     }
 	}
+	if(f) printf("Mapping failed");
 	return 0;
 
 }

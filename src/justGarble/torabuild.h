@@ -6,6 +6,9 @@
   Torabuild for standard circuit builders
   reduce size of main code
 */
+#ifdef __cplusplus
+extern "C"{
+#endif
 
 #include "justGarble.h"
 #include "aes.h"
@@ -15,5 +18,9 @@ void setup_AESInput(int *setup_target, unsigned char *plaintext, unsigned char *
 
 #define BUILD_VERBOSE
 void build_JustineAES(GarbledCircuit *buildTarget);
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif

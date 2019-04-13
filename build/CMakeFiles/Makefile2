@@ -69,20 +69,25 @@ CMAKE_BINARY_DIR = /home/cjason/Desktop/secure-dist-computing/xsedar/build
 
 # Convenience name for "all" pass in the directory.
 src/all: src/CMakeFiles/setup_test.dir/all
+src/all: src/CMakeFiles/full_test.dir/all
 src/all: src/CMakeFiles/xsedar.dir/all
 src/all: src/justGarble/all
+src/all: src/toralib/all
 
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
 src/clean: src/CMakeFiles/setup_test.dir/clean
+src/clean: src/CMakeFiles/full_test.dir/clean
 src/clean: src/CMakeFiles/xsedar.dir/clean
 src/clean: src/justGarble/clean
+src/clean: src/toralib/clean
 
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
 src/preinstall: src/justGarble/preinstall
+src/preinstall: src/toralib/preinstall
 
 .PHONY : src/preinstall
 
@@ -92,9 +97,10 @@ src/preinstall: src/justGarble/preinstall
 # All Build rule for target.
 src/CMakeFiles/setup_test.dir/all: src/CMakeFiles/xsedar.dir/all
 src/CMakeFiles/setup_test.dir/all: src/justGarble/CMakeFiles/justgarble.dir/all
+src/CMakeFiles/setup_test.dir/all: src/toralib/CMakeFiles/toralib.dir/all
 	$(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/depend
 	$(MAKE) -f src/CMakeFiles/setup_test.dir/build.make src/CMakeFiles/setup_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=14,15 "Built target setup_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=16,17 "Built target setup_test"
 .PHONY : src/CMakeFiles/setup_test.dir/all
 
 # Include target in all.
@@ -104,7 +110,7 @@ all: src/CMakeFiles/setup_test.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/setup_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 17
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 19
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/setup_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/setup_test.dir/rule
@@ -125,13 +131,52 @@ clean: src/CMakeFiles/setup_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/full_test.dir
+
+# All Build rule for target.
+src/CMakeFiles/full_test.dir/all: src/CMakeFiles/xsedar.dir/all
+src/CMakeFiles/full_test.dir/all: src/justGarble/CMakeFiles/justgarble.dir/all
+src/CMakeFiles/full_test.dir/all: src/toralib/CMakeFiles/toralib.dir/all
+	$(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/depend
+	$(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=1,2 "Built target full_test"
+.PHONY : src/CMakeFiles/full_test.dir/all
+
+# Include target in all.
+all: src/CMakeFiles/full_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/full_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 19
+	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/full_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/full_test.dir/rule
+
+# Convenience name for target.
+full_test: src/CMakeFiles/full_test.dir/rule
+
+.PHONY : full_test
+
+# clean rule for target.
+src/CMakeFiles/full_test.dir/clean:
+	$(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/clean
+.PHONY : src/CMakeFiles/full_test.dir/clean
+
+# clean rule for target.
+clean: src/CMakeFiles/full_test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target src/CMakeFiles/xsedar.dir
 
 # All Build rule for target.
-src/CMakeFiles/xsedar.dir/all:
+src/CMakeFiles/xsedar.dir/all: src/toralib/CMakeFiles/toralib.dir/all
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/depend
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=16,17 "Built target xsedar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=20,21 "Built target xsedar"
 .PHONY : src/CMakeFiles/xsedar.dir/all
 
 # Include target in all.
@@ -141,7 +186,7 @@ all: src/CMakeFiles/xsedar.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/xsedar.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/xsedar.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/xsedar.dir/rule
@@ -186,7 +231,7 @@ src/justGarble/preinstall:
 src/justGarble/CMakeFiles/justgarble.dir/all:
 	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/depend
 	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target justgarble"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target justgarble"
 .PHONY : src/justGarble/CMakeFiles/justgarble.dir/all
 
 # Include target in all.
@@ -213,6 +258,61 @@ src/justGarble/CMakeFiles/justgarble.dir/clean:
 
 # clean rule for target.
 clean: src/justGarble/CMakeFiles/justgarble.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/toralib
+
+# Convenience name for "all" pass in the directory.
+src/toralib/all: src/toralib/CMakeFiles/toralib.dir/all
+
+.PHONY : src/toralib/all
+
+# Convenience name for "clean" pass in the directory.
+src/toralib/clean: src/toralib/CMakeFiles/toralib.dir/clean
+
+.PHONY : src/toralib/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/toralib/preinstall:
+
+.PHONY : src/toralib/preinstall
+
+#=============================================================================
+# Target rules for target src/toralib/CMakeFiles/toralib.dir
+
+# All Build rule for target.
+src/toralib/CMakeFiles/toralib.dir/all:
+	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/depend
+	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=18,19 "Built target toralib"
+.PHONY : src/toralib/CMakeFiles/toralib.dir/all
+
+# Include target in all.
+all: src/toralib/CMakeFiles/toralib.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/toralib/CMakeFiles/toralib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 src/toralib/CMakeFiles/toralib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
+.PHONY : src/toralib/CMakeFiles/toralib.dir/rule
+
+# Convenience name for target.
+toralib: src/toralib/CMakeFiles/toralib.dir/rule
+
+.PHONY : toralib
+
+# clean rule for target.
+src/toralib/CMakeFiles/toralib.dir/clean:
+	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/clean
+.PHONY : src/toralib/CMakeFiles/toralib.dir/clean
+
+# clean rule for target.
+clean: src/toralib/CMakeFiles/toralib.dir/clean
 
 .PHONY : clean
 

@@ -16,12 +16,18 @@
 
 */
 
+#ifndef DKC_H_
+#define DKC_H_
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+
 #include <xmmintrin.h>              /* SSE instructions and _mm_malloc */
 #include <emmintrin.h>              /* SSE2 instructions               */
 #include "aes.h"
 
-#ifndef DKC_H_
-#define DKC_H_
 
 typedef struct {
 	AES_KEY K;
@@ -86,4 +92,9 @@ void DKCipherKSSEncryptFull(block *key1, block *key2, block *ctext,
 
 //#define	DOUBLE(B) B
 #define DOUBLE(B) _mm_slli_epi64(B,1)
+
+#ifdef __cplusplus
+};
+#endif
+
 #endif

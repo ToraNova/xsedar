@@ -6,5 +6,5 @@ CXX_FLAGS =  -msse4 -maes   -pthread -std=gnu++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cjason/Desktop/secure-dist-computing/xsedar/src/justGarble -isystem /usr/local/lib 
+CXX_INCLUDES = -I/home/cjason/Desktop/secure-dist-computing/xsedar/src/justGarble -I/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib -isystem /usr/local/lib 
 

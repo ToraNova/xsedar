@@ -19,6 +19,11 @@
 
 #ifndef common
 #define common 1
+
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -129,5 +134,8 @@ char *__itc_dst;
 #define RUNNING_TIME_ITER 100
 block randomBlock();
 
+#ifdef __cplusplus
+};
+#endif
 
 #endif

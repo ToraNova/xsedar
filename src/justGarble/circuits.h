@@ -19,6 +19,10 @@
 #ifndef CIRCUITS_H_
 #define CIRCUITS_H_
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 int SHLCircuit(GarbledCircuit *gc, GarblingContext *garblingContext, int n, int* inputs, int* outputs);
 int SHRCircuit(GarbledCircuit *gc, GarblingContext *garblingContext, int n, int* inputs, int* outputs);
 int MULCircuit(GarbledCircuit *gc, GarblingContext *garblingContext, int n, int* inputs, int* outputs);
@@ -75,4 +79,9 @@ int JustineSBOX(GarbledCircuit* gc, GarblingContext* garblingContext, int* input
 int JustineMixColumns(GarbledCircuit* gc, GarblingContext* garblingContext,int* inputs, int* output);
 int JustineORCircuit(GarbledCircuit *garbledCircuit, GarblingContext *garblingContext,int n, int* inputs, int* outputs);
 int JustineANDCircuit(GarbledCircuit *garbledCircuit, GarblingContext *garblingContext,int n, int* inputs, int* outputs);
+
+#ifdef __cplusplus
+};
+#endif
+
 #endif /* CIRCUITS_H_ */

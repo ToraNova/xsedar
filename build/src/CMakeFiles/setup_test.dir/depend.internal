@@ -10,5 +10,6 @@ src/CMakeFiles/setup_test.dir/setup_test.cpp.o
  ../src/justGarble/garble.h
  ../src/justGarble/jgutil.h
  ../src/justGarble/justGarble.h
+ ../src/toralib/simplesock.h
  /home/cjason/Desktop/secure-dist-computing/xsedar/src/setup_test.cpp
  /home/cjason/Desktop/secure-dist-computing/xsedar/src/xsedar.h

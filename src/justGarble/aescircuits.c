@@ -577,7 +577,7 @@ int MULTGF16(GarbledCircuit *gc, GarblingContext *garblingContext, int* inputs,
 
 }
 
-inline int SquareCircuit(GarbledCircuit *garbledCircuit,
+int SquareCircuit(GarbledCircuit *garbledCircuit,
     GarblingContext *garblingContext, int n, int* inputs, int* outputs) {
 
   outputs[0] = getNextWire(garblingContext);

@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
 
   //networking params
   string addr = "127.0.0.1";
-  uint16_t port = 7766;
+  uint16_t port = 7766; //using port for obliv, port+1 for normal socket send
 
   //the number of OTs that are performed. Has to be initialized to a certain minimum size due to
   uint64_t numOTs = 1000000;
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
 
     cout << "Setting up as the oblivious transfer sender (Alice)..." << endl;
     xsedar_sender xs = xsedar_sender();
-    xs.initialize(addr,port);
+    xs.init_msock(addr,port);
     cout << "Sender setup successful..." << endl;
 
     CBitVector delta;
@@ -97,7 +97,7 @@ int main(int argc, char *argv[]){
     //the program functions as the receiver
     cout << "Setting up as the oblivous transfer receiver (Bob)" << endl;
     xsedar_receiver xr = xsedar_receiver();
-    xr.initialize(addr,port);
+    xr.init_msock(addr,port);
     cout << "Receiver setup successful..." << endl;
 
     CBitVector choices, response;
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]){
     cout << "Receiving bits obliviously" << endl;
     //receives
     for(uint32_t i = 0; i < runs; i++) {
-      xr.obliv_transfer(
+      xr.obliv_receive(
         &choices, &response, numOTs, bitlength, nsndvals, fMaskFct
       );
 		}

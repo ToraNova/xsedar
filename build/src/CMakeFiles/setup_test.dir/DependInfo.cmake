@@ -11,6 +11,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src/justGarble"
+  "../src/toralib"
   "/usr/local/lib"
   )
 
@@ -18,6 +19,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/xsedar.dir/DependInfo.cmake"
   "/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/justgarble.dir/DependInfo.cmake"
+  "/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/toralib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

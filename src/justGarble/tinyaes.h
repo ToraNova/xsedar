@@ -1,6 +1,10 @@
 #ifndef _AES_H_
 #define _AES_H_
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include <stdint.h>
 
 
@@ -35,6 +39,8 @@ void AES128_CBC_decrypt_buffer(uint8_t* output, uint8_t* input, uint32_t length,
 
 #endif // #if defined(CBC) && CBC
 
-
+#ifdef __cplusplus
+};
+#endif
 
 #endif //_AES_H_

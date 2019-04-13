@@ -45,6 +45,10 @@
 #ifndef JGUTIL_H_
 #define JGUTIL_H_
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include "common.h"
 #include "emmintrin.h"
 
@@ -70,7 +74,11 @@ void printbitstream(int *target, int block,int size);
 
 char *base64_encode(const unsigned char *data,size_t input_length,size_t *output_length);
 
-#define BIGENDHEYO
+//#define BIGENDHEYO
 void make_uint_array_from_blob(int* dest, unsigned char* blob, u_int32_t bloblen);
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif /* UTIL_H_ */

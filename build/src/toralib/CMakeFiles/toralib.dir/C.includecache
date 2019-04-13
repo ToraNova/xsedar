@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib/dbg.h
+stdio.h
+-
+errno.h
+-
+string.h
+-
+
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib/simplesock.c
+dbg.h
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib/dbg.h
+sys/socket.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+stdlib.h
+-
+errno.h
+-
+simplesock.h
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib/simplesock.h
+
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/toralib/simplesock.h
+

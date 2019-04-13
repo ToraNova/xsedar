@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../src/toralib/simplesock.h
+
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/xsedar.cpp
 xsedar.h
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/xsedar.h
@@ -13,6 +15,8 @@ cstdlib
 -
 iostream
 -
+simplesock.h
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/simplesock.h
 
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/xsedar.h
 ENCRYPTO_utils/connection.h
@@ -39,6 +43,14 @@ memory
 -
 string
 -
+unistd.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+simplesock.h
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/simplesock.h
 ot/iknp-ot-ext-snd.h
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/ot/iknp-ot-ext-snd.h
 ot/iknp-ot-ext-rec.h

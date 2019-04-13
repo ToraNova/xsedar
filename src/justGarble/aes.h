@@ -52,6 +52,10 @@
 #ifndef _AES_
 #define _AES_
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #ifndef INLINE
 # if __GNUC__ && !__GNUC_STDC_INLINE__
 #  define INLINE extern inline
@@ -268,5 +272,10 @@ INLINE void AES_ecb_decrypt_blks(block *blks, unsigned nblks, AES_KEY *key) {
 	for (i = 0; i < nblks; ++i)
 		blks[i] = _mm_aesdeclast_si128(blks[i], sched[j]);
 }
+
+#ifdef __cplusplus
+};
+#endif
+
 
 #endif

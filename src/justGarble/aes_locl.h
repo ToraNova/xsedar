@@ -7,7 +7,7 @@
  * are met:
  *
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer. 
+ *    notice, this list of conditions and the following disclaimer.
  *
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in
@@ -52,6 +52,11 @@
 #ifndef HEADER_AES_LOCL_H
 #define HEADER_AES_LOCL_H
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
+
 #include "openssl/e_os2.h"
 
 #ifdef OPENSSL_NO_AES
@@ -85,5 +90,9 @@ typedef unsigned char u8;
 
 /* This controls loop-unrolling in aes_core.c */
 #undef FULL_UNROLL
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif /* !HEADER_AES_LOCL_H */

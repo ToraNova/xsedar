@@ -70,6 +70,8 @@ check.h
 jgutil.h
 ../src/justGarble/jgutil.h
 
+../src/toralib/simplesock.h
+
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/setup_test.cpp
 xsedar.h
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/xsedar.h
@@ -105,6 +107,14 @@ memory
 -
 string
 -
+unistd.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+simplesock.h
+/home/cjason/Desktop/secure-dist-computing/xsedar/src/simplesock.h
 ot/iknp-ot-ext-snd.h
 /home/cjason/Desktop/secure-dist-computing/xsedar/src/ot/iknp-ot-ext-snd.h
 ot/iknp-ot-ext-rec.h

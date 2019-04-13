@@ -9,6 +9,7 @@ src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/justGarble/dkcipher.h
 src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/justGarble/garble.h
 src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/justGarble/jgutil.h
 src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/justGarble/justGarble.h
+src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/toralib/simplesock.h
 src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/setup_test.cpp
 src/CMakeFiles/setup_test.dir/setup_test.cpp.o: ../src/xsedar.h
 

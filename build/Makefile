@@ -170,6 +170,19 @@ setup_test/fast:
 .PHONY : setup_test/fast
 
 #=============================================================================
+# Target rules for targets named full_test
+
+# Build rule for target.
+full_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 full_test
+.PHONY : full_test
+
+# fast build rule for target.
+full_test/fast:
+	$(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/build
+.PHONY : full_test/fast
+
+#=============================================================================
 # Target rules for targets named xsedar
 
 # Build rule for target.
@@ -195,6 +208,19 @@ justgarble/fast:
 	$(MAKE) -f src/justGarble/CMakeFiles/justgarble.dir/build.make src/justGarble/CMakeFiles/justgarble.dir/build
 .PHONY : justgarble/fast
 
+#=============================================================================
+# Target rules for targets named toralib
+
+# Build rule for target.
+toralib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 toralib
+.PHONY : toralib
+
+# fast build rule for target.
+toralib/fast:
+	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/build
+.PHONY : toralib/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -208,8 +234,10 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... setup_test"
+	@echo "... full_test"
 	@echo "... xsedar"
 	@echo "... justgarble"
+	@echo "... toralib"
 .PHONY : help
 
 

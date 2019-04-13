@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -91,6 +79,18 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -172,6 +172,21 @@ setup_test/fast:
 .PHONY : setup_test/fast
 
 # Convenience name for target.
+src/CMakeFiles/full_test.dir/rule:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/full_test.dir/rule
+.PHONY : src/CMakeFiles/full_test.dir/rule
+
+# Convenience name for target.
+full_test: src/CMakeFiles/full_test.dir/rule
+
+.PHONY : full_test
+
+# fast build rule for target.
+full_test/fast:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/build
+.PHONY : full_test/fast
+
+# Convenience name for target.
 src/CMakeFiles/xsedar.dir/rule:
 	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/xsedar.dir/rule
 .PHONY : src/CMakeFiles/xsedar.dir/rule
@@ -185,6 +200,33 @@ xsedar: src/CMakeFiles/xsedar.dir/rule
 xsedar/fast:
 	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
 .PHONY : xsedar/fast
+
+full_test.o: full_test.cpp.o
+
+.PHONY : full_test.o
+
+# target to build an object file
+full_test.cpp.o:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/full_test.cpp.o
+.PHONY : full_test.cpp.o
+
+full_test.i: full_test.cpp.i
+
+.PHONY : full_test.i
+
+# target to preprocess a source file
+full_test.cpp.i:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/full_test.cpp.i
+.PHONY : full_test.cpp.i
+
+full_test.s: full_test.cpp.s
+
+.PHONY : full_test.s
+
+# target to generate assembly for a file
+full_test.cpp.s:
+	cd /home/cjason/Desktop/secure-dist-computing/xsedar/build && $(MAKE) -f src/CMakeFiles/full_test.dir/build.make src/CMakeFiles/full_test.dir/full_test.cpp.s
+.PHONY : full_test.cpp.s
 
 setup_test.o: setup_test.cpp.o
 
@@ -247,13 +289,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install"
 	@echo "... setup_test"
+	@echo "... full_test"
 	@echo "... install/local"
 	@echo "... xsedar"
-	@echo "... install"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
+	@echo "... full_test.o"
+	@echo "... full_test.i"
+	@echo "... full_test.s"
 	@echo "... setup_test.o"
 	@echo "... setup_test.i"
 	@echo "... setup_test.s"

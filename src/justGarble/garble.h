@@ -20,6 +20,10 @@
 #ifndef garble
 #define garble 0
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include "common.h"
 #include "justGarble.h"
 #include "dkcipher.h"
@@ -43,5 +47,9 @@ int getNextWire(GarblingContext *garblingContext);
 void removeGarbledCircuit(GarbledCircuit *garbledCircuit);
 
 unsigned long startTime, endTime;
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif

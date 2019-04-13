@@ -5,10 +5,11 @@
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles/edit_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles/rebuild_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/install/strip.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/install.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/setup_test.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/full_test.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/install/local.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/xsedar.dir
-/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/install.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/edit_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/rebuild_cache.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/CMakeFiles/list_install_components.dir
@@ -19,3 +20,10 @@
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/list_install_components.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/install/local.dir
 /home/cjason/Desktop/secure-dist-computing/xsedar/build/src/justGarble/CMakeFiles/install.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/edit_cache.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/install/strip.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/toralib.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/install.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/rebuild_cache.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/list_install_components.dir
+/home/cjason/Desktop/secure-dist-computing/xsedar/build/src/toralib/CMakeFiles/install/local.dir

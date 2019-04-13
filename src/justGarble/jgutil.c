@@ -129,6 +129,7 @@ void printblock_arr(block *il,int size){
 	int i;
 	printf("Printing block arr:\n");
 	for(i=0;i<size;i++){
+		printf("%d ",i);
 		print128_num(il[i]);
 	}
 	printf("\n");

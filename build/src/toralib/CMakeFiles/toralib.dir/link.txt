@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtoralib.a  CMakeFiles/toralib.dir/simplesock.c.o
+/usr/bin/ranlib libtoralib.a
