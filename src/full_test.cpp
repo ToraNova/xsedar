@@ -203,7 +203,7 @@ int main(int argc, char *argv[]){
     cout << "Setting up as the oblivous transfer receiver (Bob)" << endl;
     xsedar_receiver xr = xsedar_receiver();
     xr.init_msock(addr,port); //ot main socket init
-    xr.init_vsock(port+1); //vanilla socket initliaization
+    while(!xr.init_vsock(port+1)){}; //vanilla socket initliaization block
     cout << "Receiver setup successful..." << endl;
 
     char rbuff[2048];
@@ -249,7 +249,9 @@ int main(int argc, char *argv[]){
 		}
 
     //response.PrintHex();
-    obtainedLabels = (block *) response.GetArr();
+    cout << "Obtained response size :" << response.GetSize() << endl;
+    response.GetBits((BYTE *)obtainedLabels, 0, numOTs*bitlength);
+    //obtainedLabels = (block *) response.GetArr();
     //obtains the input labels from alice
     xr.vanil_receive( (char *) (obtainedLabels+128),&tt, sizeof(block)*(circuit.n-128),gTimeout,true);
     cout << "Alice's Input Labels received...size :" << tt << endl;
@@ -258,6 +260,8 @@ int main(int argc, char *argv[]){
     evaluate(&circuit, obtainedLabels, finalOutput);
     memset(outputVals, 0, sizeof(int) * circuit.m);
     mapOutputs(outputMap, finalOutput, outputVals, circuit.m);
+
+    xr.close_vsock();
 
     //visual check
     cout << "Garbled Evaluation :" << endl;

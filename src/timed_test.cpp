@@ -21,23 +21,18 @@
 #define circuit_filename0 "justine_aes.gc"
 #define circuit_filename1 "simpleAND.gc"
 
-#define loopsize 3000
-
 using namespace std;
 
 int main(int argc, char *argv[]){
 
-  cout << "Setup Test...\n" ;
-
-  if(argc<2){
-    cout << "Please specify sender:0 or receiver:others\n" ;
-    return -1;
-  }
+  cout << "Timed Test...\n" ;
 
   //networking params
   string addr = "127.0.0.1";
   uint16_t port = 7766; //using port for obliv, port+1 for normal socket send
 
+  //timed_testing vars
+  uint32_t loopsize = 3;
   clock_t tstart,tstop;
   double elapsed;
 
@@ -89,16 +84,27 @@ int main(int argc, char *argv[]){
   field_type eFType = ECC_FIELD;
   MaskingFunction *fMaskFct;
 
+  if(argc<2){
+    cout << "Please specify sender:0 or receiver:others\n" ;
+    return -1;
+  }else if(argc<4){
+    loopsize = atoi(argv[2]);
+  }
+
+  cout << "Loop size :" << loopsize << endl;
+
   if(nPID == SERVER_ID){
     tstart = clock();
 
     cout << "Setting up as the oblivious transfer sender (Alice)..." << endl;
     xsedar_sender xs = xsedar_sender();
     xs.init_msock(addr,port); //ot main socket init
+
     cout << "Garbled Circuit Information, Gatecount :" << circuit.q << endl;
     cout << "Sender setup successful...beginning loop" << endl;
 
     for(uint32_t loop =0;loop<loopsize;loop++){
+      //cout << "Loop iter. "<< loop<<endl;
       /*
         Key setup procedure
       */
@@ -134,8 +140,6 @@ int main(int argc, char *argv[]){
 
       //sends the garbled table over
       //for everygate there is a garbled table
-
-
       xs.vanil_transfer( addr,port+1, (char *)(circuit.garbledTable), 4*sizeof(block)*circuit.q,gTimeout);
       //send the global key
       xs.vanil_transfer(addr,port+1, (char *)&circuit.globalKey, sizeof(block),gTimeout);
@@ -194,9 +198,13 @@ int main(int argc, char *argv[]){
     };
 
     tstop = clock();
-    elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC * 1000.0;
+    //elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC * 1000.0; //millis
+    elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC; //seconds
 
   }else{
+    //the program functions as the receiver
+    int32_t tr=0,tt;
+    char rbuff[2048];
     tstart = clock();
 
     obtainedLabels = (block *) malloc(sizeof(block)*circuit.n);
@@ -204,14 +212,13 @@ int main(int argc, char *argv[]){
     xsedar_receiver xr = xsedar_receiver();
     xr.init_msock(addr,port); //ot main socket init
     while(! xr.init_vsock(port+1)){} //run until vsock available
+
     cout << "Garbled Circuit Information, Gatecount :" << circuit.q << endl;
     cout << "Receiver setup successful...beginning loop" << endl;
 
     for(uint32_t loop=0;loop<loopsize;loop++){
-
-      int32_t tr=0,tt;
-      //the program functions as the receiver
-
+      //cout << "Loop iter. "<< loop<<endl;
+      tr = 0;
       //creates the memory to receive the garbled table
       //obtains the garbled table
 
@@ -247,7 +254,8 @@ int main(int argc, char *argv[]){
   		}
 
       //response.PrintHex();
-      obtainedLabels = (block *) response.GetArr(); //TODO: check out what problem occured here
+      response.GetBits((BYTE *)obtainedLabels, 0, numOTs*bitlength);
+      //obtainedLabels = (block *) response.GetArr(); //TODO: check out what problem occured here
       //obtains the input labels from alice
       xr.vanil_receive( (char *) (obtainedLabels+128),&tt, sizeof(block)*(circuit.n-128),gTimeout,true);
 
@@ -265,7 +273,11 @@ int main(int argc, char *argv[]){
     };
     xr.close_vsock();
     tstop = clock();
-    elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC * 1000.0;
+
+    //cleanup
+    free(obtainedLabels);
+    //elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC * 1000.0; //millis
+    elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC; //seconds
   }
 
   // CLEANUP routine

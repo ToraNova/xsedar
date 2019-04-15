@@ -100,6 +100,8 @@ bool xsedar::vanil_transfer(
 	if(! init_rsock(address,port))return false;
 	if(sendbuf(rsock,sbuf,len,timeout) < 0){
 		std::cerr << "sendbuf failed\n";
+		close(rsock);
+		return false;
 	}
 	if(close(rsock)==0) return true;
 	else return false;
