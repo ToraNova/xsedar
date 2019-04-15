@@ -29,4 +29,8 @@ add_executable(full_test full_test.cpp)
 target_link_libraries(full_test
 	xsedar justgarble ENCRYPTO_utils::encrypto_utils)
 
-install(TARGETS setup_test full_test DESTINATION ${PROJECT_SOURCE_DIR}/bin)
+add_executable(timed_test timed_test.cpp)
+target_link_libraries(timed_test
+	xsedar justgarble ENCRYPTO_utils::encrypto_utils)
+
+install(TARGETS setup_test full_test timed_test DESTINATION ${PROJECT_SOURCE_DIR}/bin)

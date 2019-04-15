@@ -85,6 +85,7 @@ public:
 
   crypto *getCrypt();
   bool init_vsock(const int port);
+  bool close_vsock();
   bool vanil_transfer(
     std::string &address,
     const int port,

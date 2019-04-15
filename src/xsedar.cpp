@@ -80,6 +80,11 @@ bool xsedar::init_vsock(const int port){
 	return true;
 }
 
+bool xsedar::close_vsock(){
+	//closes the vanilla listening socket
+	return close(v_Socket);
+}
+
 bool xsedar::vanil_transfer(
 	std::string &address,
 	const int port,
@@ -182,14 +187,17 @@ bool xsedar_sender::obliv_transfer(
 	reset_msock();
 	timespec ot_begin, ot_end;
 	double rndgentime;
-	std::cout<<"."<<std::endl;
+	//std::cout<<".";
 	clock_gettime(CLOCK_MONOTONIC, &ot_begin);
 	// Execute OT sender routine
 	success = otext->send(numOTs, bitlength, nsndvals, X, stype, rtype, nThreads, fMaskFct);
 	clock_gettime(CLOCK_MONOTONIC, &ot_end);
+
+	/*
 	std::cout << "Send success :" << success << std::endl;
 	std::cout << getMillies(ot_begin, ot_end) + rndgentime << "\t"
 	<< m_Socket->getSndCnt() << "\t" << m_Socket->getRcvCnt() << std::endl;
+	*/
 	return success;
 }
 
@@ -231,14 +239,16 @@ bool xsedar_receiver::obliv_receive(
 	reset_msock();
 	timespec ot_begin, ot_end;
 	double rndgentime;
-	std::cout<<"."<<std::endl;
+	//std::cout<<".";
 	clock_gettime(CLOCK_MONOTONIC, &ot_begin);
 	// Execute OT sender routine
 	success = otext->receive(numOTs, bitlength, nsndvals, choices, ret,
 		stype, rtype, nThreads, fMaskFct);
 	clock_gettime(CLOCK_MONOTONIC, &ot_end);
+	/*
 	std::cout << "Recv success :" << success << std::endl;
 	std::cout << getMillies(ot_begin, ot_end) + rndgentime << "\t"
 	<< m_Socket->getSndCnt() << "\t" << m_Socket->getRcvCnt() << std::endl;
+	*/
 	return success;
 }

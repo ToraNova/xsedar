@@ -1,2 +1,3 @@
 /home/cjason/Desktop/secure-dist-computing/xsedar/bin/setup_test
 /home/cjason/Desktop/secure-dist-computing/xsedar/bin/full_test
+/home/cjason/Desktop/secure-dist-computing/xsedar/bin/timed_test

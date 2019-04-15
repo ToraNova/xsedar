@@ -183,6 +183,19 @@ full_test/fast:
 .PHONY : full_test/fast
 
 #=============================================================================
+# Target rules for targets named timed_test
+
+# Build rule for target.
+timed_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 timed_test
+.PHONY : timed_test
+
+# fast build rule for target.
+timed_test/fast:
+	$(MAKE) -f src/CMakeFiles/timed_test.dir/build.make src/CMakeFiles/timed_test.dir/build
+.PHONY : timed_test/fast
+
+#=============================================================================
 # Target rules for targets named xsedar
 
 # Build rule for target.
@@ -235,6 +248,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... setup_test"
 	@echo "... full_test"
+	@echo "... timed_test"
 	@echo "... xsedar"
 	@echo "... justgarble"
 	@echo "... toralib"

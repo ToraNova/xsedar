@@ -70,6 +70,7 @@ CMAKE_BINARY_DIR = /home/cjason/Desktop/secure-dist-computing/xsedar/build
 # Convenience name for "all" pass in the directory.
 src/all: src/CMakeFiles/setup_test.dir/all
 src/all: src/CMakeFiles/full_test.dir/all
+src/all: src/CMakeFiles/timed_test.dir/all
 src/all: src/CMakeFiles/xsedar.dir/all
 src/all: src/justGarble/all
 src/all: src/toralib/all
@@ -79,6 +80,7 @@ src/all: src/toralib/all
 # Convenience name for "clean" pass in the directory.
 src/clean: src/CMakeFiles/setup_test.dir/clean
 src/clean: src/CMakeFiles/full_test.dir/clean
+src/clean: src/CMakeFiles/timed_test.dir/clean
 src/clean: src/CMakeFiles/xsedar.dir/clean
 src/clean: src/justGarble/clean
 src/clean: src/toralib/clean
@@ -170,13 +172,52 @@ clean: src/CMakeFiles/full_test.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target src/CMakeFiles/timed_test.dir
+
+# All Build rule for target.
+src/CMakeFiles/timed_test.dir/all: src/CMakeFiles/xsedar.dir/all
+src/CMakeFiles/timed_test.dir/all: src/justGarble/CMakeFiles/justgarble.dir/all
+src/CMakeFiles/timed_test.dir/all: src/toralib/CMakeFiles/toralib.dir/all
+	$(MAKE) -f src/CMakeFiles/timed_test.dir/build.make src/CMakeFiles/timed_test.dir/depend
+	$(MAKE) -f src/CMakeFiles/timed_test.dir/build.make src/CMakeFiles/timed_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=18,19 "Built target timed_test"
+.PHONY : src/CMakeFiles/timed_test.dir/all
+
+# Include target in all.
+all: src/CMakeFiles/timed_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/CMakeFiles/timed_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 19
+	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/timed_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/timed_test.dir/rule
+
+# Convenience name for target.
+timed_test: src/CMakeFiles/timed_test.dir/rule
+
+.PHONY : timed_test
+
+# clean rule for target.
+src/CMakeFiles/timed_test.dir/clean:
+	$(MAKE) -f src/CMakeFiles/timed_test.dir/build.make src/CMakeFiles/timed_test.dir/clean
+.PHONY : src/CMakeFiles/timed_test.dir/clean
+
+# clean rule for target.
+clean: src/CMakeFiles/timed_test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target src/CMakeFiles/xsedar.dir
 
 # All Build rule for target.
 src/CMakeFiles/xsedar.dir/all: src/toralib/CMakeFiles/toralib.dir/all
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/depend
 	$(MAKE) -f src/CMakeFiles/xsedar.dir/build.make src/CMakeFiles/xsedar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=20,21 "Built target xsedar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=22,23 "Built target xsedar"
 .PHONY : src/CMakeFiles/xsedar.dir/all
 
 # Include target in all.
@@ -286,7 +327,7 @@ src/toralib/preinstall:
 src/toralib/CMakeFiles/toralib.dir/all:
 	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/depend
 	$(MAKE) -f src/toralib/CMakeFiles/toralib.dir/build.make src/toralib/CMakeFiles/toralib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=18,19 "Built target toralib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cjason/Desktop/secure-dist-computing/xsedar/build/CMakeFiles --progress-num=20,21 "Built target toralib"
 .PHONY : src/toralib/CMakeFiles/toralib.dir/all
 
 # Include target in all.

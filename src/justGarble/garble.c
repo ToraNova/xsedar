@@ -976,7 +976,7 @@ int mapOutputs(OutputMap outputMap, OutputMap outputMap2, int *vals, int m) {
 		  f = 1;
     }
 	}
-	if(f) printf("Mapping failed");
+	//if(f) printf("Mapping failed");
 	return 0;
 
 }
