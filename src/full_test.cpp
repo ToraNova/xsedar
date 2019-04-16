@@ -48,8 +48,12 @@ int main(int argc, char *argv[]){
 	uint32_t nChecks = 380;
   uint32_t sbatchsize = 100;
 
+  //memory testing vars
+  int32_t tr=0,tt;
+
   //Determines whether the program is executed in the sender or receiver role
   uint32_t nPID = atoi(argv[1]);
+  int t;
 
   //loads up a garbled AES circuit
   GarbledCircuit circuit;
@@ -163,10 +167,11 @@ int main(int argc, char *argv[]){
     cout << "Sending bits obliviously" << endl;
     //sends out
     for(uint32_t i = 0; i < runs; i++) {
-      xs.obliv_transfer(
-        X, numOTs, bitlength, nsndvals, fMaskFct
+      t = xs.obliv_transfer(
+        X, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
       );
 		}
+    cout << "Obliviously transferred :" << t << " tx:" << tt << " rx:" << tr << endl;
 
     //send alice's input label (AES KEY)
     xs.vanil_transfer(addr,port+1, (char *)aesKeyLabel, sizeof(block)*(circuit.n - 128), gTimeout);
@@ -197,13 +202,11 @@ int main(int argc, char *argv[]){
   }else{
 
     obtainedLabels = (block *) malloc(sizeof(block)*circuit.n);
-
-    int32_t tr=0,tt;
     //the program functions as the receiver
     cout << "Setting up as the oblivous transfer receiver (Bob)" << endl;
     xsedar_receiver xr = xsedar_receiver();
     xr.init_msock(addr,port); //ot main socket init
-    while(!xr.init_vsock(port+1)){}; //vanilla socket initliaization block
+    while(!xr.init_vsock(port+1,true)){}; //vanilla socket initliaization block
     cout << "Receiver setup successful..." << endl;
 
     char rbuff[2048];
@@ -243,10 +246,12 @@ int main(int argc, char *argv[]){
     cout << "Receiving bits obliviously" << endl;
     //receives
     for(uint32_t i = 0; i < runs; i++) {
-      xr.obliv_receive(
-        &choices, &response, numOTs, bitlength, nsndvals, fMaskFct
+      t = xr.obliv_receive(
+        &choices, &response, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
       );
 		}
+
+    cout << "Obliviously transferred :" << t << " tx:" << tt << " rx:" << tr << endl;
 
     //response.PrintHex();
     cout << "Obtained response size :" << response.GetSize() << endl;

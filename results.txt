@@ -1,0 +1,87 @@
+LOOPSIZE 5400
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5400
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :326.716
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5400
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :321.623
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5400
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :317.69
+--------------------------------------------------------------------------------
+LOOPSIZE 5700
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5700
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :336.174
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5700
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :338.541
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :5700
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :337.65
+--------------------------------------------------------------------------------
+LOOPSIZE 6000
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :6000
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :355.731
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :6000
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :355.028
+Timed Test...
+Build Statistics for : justine_aes.gc
+ No. of Gates : 260720
+ No. of Wires : 263537
+Loop size :6000
+Setting up as the oblivious transfer sender (Alice)...
+Garbled Circuit Information, Gatecount :260720
+Sender setup successful...beginning loop
+Total elapsed :355.716
+--------------------------------------------------------------------------------

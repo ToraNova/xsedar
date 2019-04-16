@@ -78,7 +78,7 @@ void build_JustineAES(GarbledCircuit *buildTarget) {
   #endif
 
   finishBuilding(buildTarget, &garblingContext, outputMap, final);
-  writeCircuitToFile(buildTarget,circuitName);
+  //writeCircuitToFile(buildTarget,circuitName);
 }
 
 void setup_AESInput(int *setup_target, unsigned char *plaintext, unsigned char *userkey, AES_KEY *inkey, int n){

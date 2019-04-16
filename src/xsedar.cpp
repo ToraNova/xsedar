@@ -68,10 +68,13 @@ bool xsedar::init_rsock(std::string &address, const int port){
 	return true;
 }
 
-bool xsedar::init_vsock(const int port){
+bool xsedar::init_vsock(const int port,bool reuse_bool){
 	//initialize vsock as a listener (no addr needed)
+	//reusebool indicate if this is a reused port,
+	//if true, it will not wait tofr TIME_WATT state of socket
+	//in the kernel
 	if(! create_vsock())return false; //create the socket
-	if( sockbind(v_Socket,port) < 0){
+	if( sockbind(v_Socket,port,reuse_bool?1:0) < 0){
 		std::cerr << "Failed to bind socket on port "<<port<<"\n";
 		return false; //error has occurred
 	}
@@ -176,9 +179,11 @@ bool xsedar_sender::init_msock(std::string &address, const int port){
 
 bool xsedar_sender::obliv_transfer(
 	CBitVector** X,
-	int numOTs,
-	int bitlength,
+	uint32_t numOTs,
+	uint32_t bitlength,
 	uint32_t nsndvals,
+	int32_t *sndcount,
+	int32_t *rcvcount,
 	MaskingFunction *fMaskFct)
 {
 	/*
@@ -187,19 +192,13 @@ bool xsedar_sender::obliv_transfer(
 	*/
 	bool success = false;
 	reset_msock();
-	timespec ot_begin, ot_end;
-	double rndgentime;
-	//std::cout<<".";
-	clock_gettime(CLOCK_MONOTONIC, &ot_begin);
+
 	// Execute OT sender routine
 	success = otext->send(numOTs, bitlength, nsndvals, X, stype, rtype, nThreads, fMaskFct);
-	clock_gettime(CLOCK_MONOTONIC, &ot_end);
 
-	/*
-	std::cout << "Send success :" << success << std::endl;
-	std::cout << getMillies(ot_begin, ot_end) + rndgentime << "\t"
-	<< m_Socket->getSndCnt() << "\t" << m_Socket->getRcvCnt() << std::endl;
-	*/
+	//save the snd/rcv counts
+	*sndcount = m_Socket->getSndCnt();
+	*rcvcount = m_Socket->getRcvCnt();
 	return success;
 }
 
@@ -232,25 +231,22 @@ bool xsedar_receiver::init_msock(std::string &address, const int port){
 bool xsedar_receiver::obliv_receive(
 	CBitVector* choices,
 	CBitVector* ret,
-	int numOTs,
-	int bitlength,
+	uint32_t numOTs,
+	uint32_t bitlength,
 	uint32_t nsndvals,
+	int32_t *sndcount,
+	int32_t *rcvcount,
 	MaskingFunction *fMaskFct)
 {
 	bool success = false;
 	reset_msock();
-	timespec ot_begin, ot_end;
-	double rndgentime;
-	//std::cout<<".";
-	clock_gettime(CLOCK_MONOTONIC, &ot_begin);
+
 	// Execute OT sender routine
 	success = otext->receive(numOTs, bitlength, nsndvals, choices, ret,
 		stype, rtype, nThreads, fMaskFct);
-	clock_gettime(CLOCK_MONOTONIC, &ot_end);
-	/*
-	std::cout << "Recv success :" << success << std::endl;
-	std::cout << getMillies(ot_begin, ot_end) + rndgentime << "\t"
-	<< m_Socket->getSndCnt() << "\t" << m_Socket->getRcvCnt() << std::endl;
-	*/
+
+	//save the snd/rcv counts
+	*sndcount = m_Socket->getSndCnt();
+	*rcvcount = m_Socket->getRcvCnt();
 	return success;
 }

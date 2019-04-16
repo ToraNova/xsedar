@@ -44,8 +44,9 @@ int sockconn(int sockobj, const char *srvaddr,int portnum){
 	return retval;
 }
 
-int sockbind(int sockobj, int portnum){
+int sockbind(int sockobj, int portnum, int reuse_bool){
 	//bind the created socket
+	//if reuse_bool is set to 1, binds immediately again
 	int retval = -1;
 	struct sockaddr_in remote={0};
 
@@ -53,6 +54,12 @@ int sockbind(int sockobj, int portnum){
 	remote.sin_addr.s_addr = htonl(INADDR_ANY);
 	remote.sin_family = AF_INET;
 	remote.sin_port = htons(portnum);
+
+	if(setsockopt(sockobj,SOL_SOCKET, SO_REUSEADDR, &reuse_bool,sizeof(int)) < 0){
+		log_err("Socket set options failed. %d",timeout_sec);
+		perror("sockbind : setsockopt");
+		return -1;
+	}
 
 	retval = bind(sockobj,(struct sockaddr *)&remote,sizeof(struct sockaddr_in));
 	log_info("Socket bound to port %d returns %d",portnum,retval);
@@ -73,7 +80,7 @@ int sendbuf(int sockobj, char *sendbuffer, uint32_t buflen, short timeout_sec){
 
 	if(setsockopt(sockobj,SOL_SOCKET, SO_SNDTIMEO, &timeout,sizeof(struct timeval)) < 0){
 		log_err("Socket set options failed. %d",timeout_sec);
-		perror("Error :");
+		perror("sendbuf : setsockopt");
 		return -1;
 	}
 	//code enters here when setup is successful
@@ -99,7 +106,7 @@ int recvbuf(int sockobj, char *recvbuffer, uint32_t buflen, short timeout_sec){
 
 	if(setsockopt(sockobj,SOL_SOCKET, SO_RCVTIMEO, &timeout,sizeof(struct timeval)) < 0){
 		log_err("Socket set options failed. %d",timeout_sec);
-		perror("Error :");
+		perror("recvbuf : setsockopt");
 		return -1;
 	}
 	//code enters here when setup is successful
@@ -124,7 +131,7 @@ int fixed_recvbuf(int sockobj, char *recvbuffer, uint32_t buflen, short timeout_
 
 	if(setsockopt(sockobj,SOL_SOCKET, SO_RCVTIMEO, &timeout,sizeof(struct timeval)) < 0){
 		log_err("Socket set options failed. %d",timeout_sec);
-		perror("Error :");
+		perror("fixed_recvbuf : setsocktopt");
 		return -1;
 	}
 	//code enters here when setup is successful

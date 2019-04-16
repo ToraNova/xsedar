@@ -30,6 +30,9 @@ int main(int argc, char *argv[]){
   string addr = "127.0.0.1";
   uint16_t port = 7766; //using port for obliv, port+1 for normal socket send
 
+  //memory testing vars
+  int32_t tr=0,tt;
+
   //the number of OTs that are performed. Has to be initialized to a certain minimum size due to
   uint64_t numOTs = 1000000;
   uint32_t runs = 1;
@@ -87,7 +90,7 @@ int main(int argc, char *argv[]){
     //sends out
     for(uint32_t i = 0; i < runs; i++) {
       xs.obliv_transfer(
-        X, numOTs, bitlength, nsndvals, fMaskFct
+        X, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
       );
 		}
 
@@ -114,7 +117,7 @@ int main(int argc, char *argv[]){
     //receives
     for(uint32_t i = 0; i < runs; i++) {
       xr.obliv_receive(
-        &choices, &response, numOTs, bitlength, nsndvals, fMaskFct
+        &choices, &response, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
       );
 		}
   }

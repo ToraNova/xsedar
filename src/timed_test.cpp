@@ -36,6 +36,9 @@ int main(int argc, char *argv[]){
   clock_t tstart,tstop;
   double elapsed;
 
+  //memory testing vars
+  int32_t tr=0,tt;
+
   //the number of OTs that are performed. Has to be initialized to a certain minimum size due to
   uint64_t numOTs = 128; //there are 128 labels
   uint32_t runs = 1;
@@ -94,7 +97,7 @@ int main(int argc, char *argv[]){
   cout << "Loop size :" << loopsize << endl;
 
   if(nPID == SERVER_ID){
-    tstart = clock();
+
 
     cout << "Setting up as the oblivious transfer sender (Alice)..." << endl;
     xsedar_sender xs = xsedar_sender();
@@ -102,7 +105,7 @@ int main(int argc, char *argv[]){
 
     cout << "Garbled Circuit Information, Gatecount :" << circuit.q << endl;
     cout << "Sender setup successful...beginning loop" << endl;
-
+    tstart = clock();
     for(uint32_t loop =0;loop<loopsize;loop++){
       //cout << "Loop iter. "<< loop<<endl;
       /*
@@ -165,7 +168,7 @@ int main(int argc, char *argv[]){
       //sends out
       for(uint32_t i = 0; i < runs; i++) {
         xs.obliv_transfer(
-          X, numOTs, bitlength, nsndvals, fMaskFct
+          X, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
         );
   		}
 
@@ -203,19 +206,23 @@ int main(int argc, char *argv[]){
 
   }else{
     //the program functions as the receiver
-    int32_t tr=0,tt;
+
     char rbuff[2048];
-    tstart = clock();
+
 
     obtainedLabels = (block *) malloc(sizeof(block)*circuit.n);
     cout << "Setting up as the oblivous transfer receiver (Bob)" << endl;
     xsedar_receiver xr = xsedar_receiver();
+    while(! xr.init_vsock(port+1,true)){
+       //run until vsock available
+      sleep(1);
+    }
+    cout << "Vsock creation successful." << endl;
     xr.init_msock(addr,port); //ot main socket init
-    while(! xr.init_vsock(port+1)){} //run until vsock available
 
     cout << "Garbled Circuit Information, Gatecount :" << circuit.q << endl;
     cout << "Receiver setup successful...beginning loop" << endl;
-
+    tstart = clock();
     for(uint32_t loop=0;loop<loopsize;loop++){
       //cout << "Loop iter. "<< loop<<endl;
       tr = 0;
@@ -249,7 +256,7 @@ int main(int argc, char *argv[]){
       //receives
       for(uint32_t i = 0; i < runs; i++) {
         xr.obliv_receive(
-          &choices, &response, numOTs, bitlength, nsndvals, fMaskFct
+          &choices, &response, numOTs, bitlength, nsndvals, &tt, &tr, fMaskFct
         );
   		}
 
@@ -271,10 +278,11 @@ int main(int argc, char *argv[]){
       cout << endl;
       */
     };
-    xr.close_vsock();
+
     tstop = clock();
 
     //cleanup
+    xr.close_vsock();
     free(obtainedLabels);
     //elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC * 1000.0; //millis
     elapsed = (double)(tstop-tstart)/CLOCKS_PER_SEC; //seconds

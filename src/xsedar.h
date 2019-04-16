@@ -84,7 +84,7 @@ protected:
 public:
 
   crypto *getCrypt();
-  bool init_vsock(const int port);
+  bool init_vsock(const int port,bool reuse_bool=false);
   bool close_vsock();
   bool vanil_transfer(
     std::string &address,
@@ -111,9 +111,11 @@ public:
   bool init_msock(std::string &address, const int port);
   bool obliv_transfer(
     CBitVector** X,
-    int numOTs,
-    int bitlength,
-    uint32_t nsndvals,
+    uint32_t numOTs,
+  	uint32_t bitlength,
+  	uint32_t nsndvals,
+  	int32_t *sndcount,
+  	int32_t *rcvcount,
     MaskingFunction *fMaskFct);
 
 };
@@ -128,9 +130,11 @@ public:
   bool obliv_receive(
   	CBitVector* choices,
   	CBitVector* ret,
-  	int numOTs,
-  	int bitlength,
+    uint32_t numOTs,
+  	uint32_t bitlength,
   	uint32_t nsndvals,
+  	int32_t *sndcount,
+  	int32_t *rcvcount,
   	MaskingFunction *fMaskFct);
 };
 
